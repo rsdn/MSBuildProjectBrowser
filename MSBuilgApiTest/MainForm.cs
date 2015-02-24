@@ -188,6 +188,101 @@ namespace MSBuilgApiTest
 
 		#region Заполнение списка свойств.
 
+	  private static HashSet<string> _commonMSBuildProperties = new HashSet<string>
+	  {
+	    "AdditionalLibPaths",
+	    "AddModules",
+	    "ALToolPath",
+	    "ApplicationIcon",
+	    "ApplicationManifest",
+	    "AssemblyOriginatorKeyFile",
+	    "AssemblySearchPaths",
+	    "AssemblyName",
+	    "BaseAddress",
+	    "BaseOutputPath",
+	    "BaseIntermediateOutputPath",
+	    "BuildInParallel",
+	    "BuildProjectReferences",
+	    "CleanFile",
+	    "CodePage",
+	    "CompilerResponseFile",
+	    "Configuration",
+	    "CscToolPath",
+	    "CustomBeforeMicrosoftCommonTargets",
+	    "DebugSymbols",
+	    "DefineConstants",
+	    "DefineDebug",
+	    "DefineTrace",
+	    "DebugType",
+	    "DelaySign",
+	    "DisabledWarnings",
+	    "DisableFastUpToDateCheck",
+	    "DocumentationFile",
+	    "ErrorReport",
+	    "ExcludeDeploymentUrl",
+	    "FileAlignment",
+	    "FrameworkPathOverride",
+	    "GenerateDocumentation",
+	    "IntermediateOutputPath",
+	    "KeyContainerName",
+	    "KeyOriginatorFile",
+	    "NoWin32Manifest",
+	    "ModuleAssemblyName",
+	    "NoLogo",
+	    "NoStdLib",
+	    "NoVBRuntimeReference",
+	    "NoWin32Manifest",
+	    "Optimize",
+	    "OptionCompare",
+	    "OptionExplicit",
+	    "OptionInfer",
+	    "OptionStrict",
+	    "OutputPath",
+	    "OutputType",
+	    "OverwriteReadOnlyFiles",
+	    "PdbFile",
+	    "Platform",
+	    "RemoveIntegerChecks",
+	    "SGenUseProxyTypes",
+	    "SGenToolPath",
+	    "StartupObject",
+	    "ProcessorArchitecture",
+	    "RootNamespace",
+	    "Satellite_AlgorithmId",
+	    "Satellite_BaseAddress",
+	    "Satellite_CompanyName",
+	    "Satellite_Configuration",
+	    "Satellite_Description",
+	    "Satellite_EvidenceFile",
+	    "Satellite_FileVersion",
+	    "Satellite_Flags",
+	    "Satellite_GenerateFullPaths",
+	    "Satellite_LinkResource",
+	    "Satellite_MainEntryPoint",
+	    "Satellite_ProductName",
+	    "Satellite_ProductVersion",
+	    "Satellite_TargetType",
+	    "Satellite_Title",
+	    "Satellite_Trademark",
+	    "Satellite_Version",
+	    "Satellite_Win32Icon",
+	    "Satellite_Win32Resource",
+	    "SubsystemVersion",
+	    "TargetCompactFramework",
+	    "TargetFrameworkVersion",
+	    "TreatWarningsAsErrors",
+	    "UseHostCompilerIfAvailable",
+	    "Utf8Output",
+	    "VbcToolPath",
+	    "VbcVerbosity",
+	    "VisualStudioVersion",
+	    "WarningsAsErrors",
+	    "WarningsNotAsErrors",
+	    "Win32Manifest",
+	    "Win32Resource"
+	  };
+
+
 		/// <summary>
 		/// Считывает описание свойств MSBuild и заполняет ими ListView.
 		/// </summary>
@@ -197,12 +292,19 @@ namespace MSBuilgApiTest
 		{
 			// EvaluatedProperties содержит список свойств получаемый 
 			// после всех подстановок и проверок.
-
-			foreach (ProjectProperty prop in msBuildHelper.Project.AllEvaluatedProperties)
-			{
+      foreach (ProjectProperty prop in msBuildHelper.Project.AllEvaluatedProperties)
+      {
 				ListViewItem lvItem = new ListViewItem(prop.Name);
 				lvItem.SubItems.Add(prop.UnevaluatedValue);
-				lvItem.SubItems.Add(prop.EvaluatedValue);
+        var evaluatedValue = prop.EvaluatedValue;
+        var envVarValue = Environment.GetEnvironmentVariable(prop.Name);
+        
+        if (evaluatedValue == envVarValue)
+          lvItem.ForeColor = Color.DarkGray;
+        else if (_commonMSBuildProperties.Contains(prop.Name))
+          lvItem.ForeColor = Color.Blue;
+
+        lvItem.SubItems.Add(evaluatedValue);
 
 				lvItem.Tag = prop;
 				lvItem.ImageIndex = 2;
