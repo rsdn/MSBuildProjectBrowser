@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBuilgApiTest", "MSBuilgApiTest\MSBuilgApiTest.csproj", "{357BA3C5-89D7-4024-BA35-44A1D64C2FCA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBuildProjectBrowser", "MSBuilgApiTest\MSBuildProjectBrowser.csproj", "{357BA3C5-89D7-4024-BA35-44A1D64C2FCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
