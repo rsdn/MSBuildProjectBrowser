@@ -7,8 +7,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{357BA3C5-89D7-4024-BA35-44A1D64C2FCA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MSBuilgApiTest</RootNamespace>
-    <AssemblyName>MSBuilgApiTest</AssemblyName>
+    <RootNamespace>MSBuildProjectBrowser</RootNamespace>
+    <AssemblyName>MSBuildProjectBrowser</AssemblyName>
     <WarningLevel>4</WarningLevel>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileUpgradeFlags>

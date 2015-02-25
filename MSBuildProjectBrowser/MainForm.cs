@@ -11,7 +11,7 @@ using RSharp.Compiler;
 using Microsoft.Build;
 using Microsoft.Build.Evaluation;
 
-namespace MSBuilgApiTest
+namespace MSBuildProjectBrowser
 {
 	using StrTreeNodePair = KeyValuePair<string, List<TreeNode>>;
 	using ItemTypesMap = Dictionary<string, List<TreeNode>>;

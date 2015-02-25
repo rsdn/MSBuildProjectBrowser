@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MSBuilgApiTest.Configuration {
+namespace MSBuildProjectBrowser.Configuration {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

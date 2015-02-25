@@ -1,4 +1,4 @@
-﻿namespace MSBuilgApiTest
+﻿namespace MSBuildProjectBrowser
 {
 	partial class MainForm
 	{
@@ -235,7 +235,7 @@
       // 
       // _openProjectToolStripMenuItem
       // 
-      this._openProjectToolStripMenuItem.Image = global::MSBuilgApiTest.Configuration.Resources.open_project_vs_24;
+      this._openProjectToolStripMenuItem.Image = global::MSBuildProjectBrowser.Configuration.Resources.open_project_vs_24;
       this._openProjectToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
       this._openProjectToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White;
       this._openProjectToolStripMenuItem.Name = "_openProjectToolStripMenuItem";
@@ -283,7 +283,7 @@
       // 
       // _openProjectToolStripButton
       // 
-      this._openProjectToolStripButton.Image = global::MSBuilgApiTest.Configuration.Resources.open_project_vs_24;
+      this._openProjectToolStripButton.Image = global::MSBuildProjectBrowser.Configuration.Resources.open_project_vs_24;
       this._openProjectToolStripButton.ImageTransparentColor = System.Drawing.Color.White;
       this._openProjectToolStripButton.Name = "_openProjectToolStripButton";
       this._openProjectToolStripButton.Size = new System.Drawing.Size(105, 22);

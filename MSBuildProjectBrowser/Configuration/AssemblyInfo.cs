@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MSBuilgApiTest")]
+[assembly: AssemblyTitle("MSBuildProjectBrowser")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("optim.ru")]
-[assembly: AssemblyProduct("MSBuilgApiTest")]
+[assembly: AssemblyProduct("MSBuildProjectBrowser")]
 [assembly: AssemblyCopyright("Copyright @ optim.ru 2005")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
