@@ -12,6 +12,7 @@ using RSharp.Compiler;
 //using Microsoft.Build.BuildEngine;
 using Microsoft.Build;
 using Microsoft.Build.Evaluation;
+using System.Web;
 
 namespace MSBuildProjectBrowser
 {
@@ -303,7 +304,6 @@ namespace MSBuildProjectBrowser
 
       var valueContentFilter        = _valueContentFilterTextBox.Text;
       var hasValueContentFilter     = valueContentFilter.Length > 0;
-
 
       _propertiesListView.BeginUpdate();
 
@@ -616,13 +616,22 @@ namespace MSBuildProjectBrowser
 
     private void _clearPropertyNamePrefixFilterTextButton_Click(object sender, EventArgs e)
     {
-      _clearPropertyNamePrefixFilterTextButton.Text = "";
+      _propertyNamePrefixFilterTextBox.Text = "";
     }
 
     private void _clearAllButton_Click(object sender, EventArgs e)
     {
       _valueContentFilterTextBox.Text = "";
-      _clearPropertyNamePrefixFilterTextButton.Text = "";
+      _propertyNamePrefixFilterTextBox.Text = "";
+    }
+
+    private void _stringToExpandTextBox_TextChanged(object sender, EventArgs e)
+    {
+      if (_msBuildHelper == null)
+        return;
+
+      var result = HttpUtility.HtmlDecode(_msBuildHelper.Project.ExpandString(_stringToExpandTextBox.Text));
+      _expansionResultTextBox.Text = result;
     }
   }
 }
