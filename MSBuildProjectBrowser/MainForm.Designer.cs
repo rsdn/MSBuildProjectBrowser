@@ -40,6 +40,11 @@
       this._nameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this._valueColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this._finalValueColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.panel1 = new System.Windows.Forms.Panel();
+      this._clearPropertyNamePrefixFilterTextButton = new System.Windows.Forms.Button();
+      this._clearValueContentFilterButton = new System.Windows.Forms.Button();
+      this._valueContentFilterTextBox = new System.Windows.Forms.TextBox();
+      this._propertyNamePrefixFilterTextBox = new System.Windows.Forms.TextBox();
       this._rightTabControl = new System.Windows.Forms.TabControl();
       this._propertyTabPage = new System.Windows.Forms.TabPage();
       this._propertyGrid = new System.Windows.Forms.PropertyGrid();
@@ -52,6 +57,7 @@
       this._mainToolStrip = new System.Windows.Forms.ToolStrip();
       this._openProjectToolStripButton = new System.Windows.Forms.ToolStripButton();
       this._projectConfigurationToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+      this._clearAllButton = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
       this.splitContainer1.Panel1.SuspendLayout();
       this.splitContainer1.Panel2.SuspendLayout();
@@ -59,6 +65,7 @@
       this._leftTabControl.SuspendLayout();
       this._itemsTabPage.SuspendLayout();
       this._propertiesTabPage.SuspendLayout();
+      this.panel1.SuspendLayout();
       this._rightTabControl.SuspendLayout();
       this._propertyTabPage.SuspendLayout();
       this._mainMenuStrip.SuspendLayout();
@@ -77,7 +84,7 @@
       this._projectTreeView.Location = new System.Drawing.Point(3, 3);
       this._projectTreeView.Name = "_projectTreeView";
       this._projectTreeView.SelectedImageIndex = 0;
-      this._projectTreeView.Size = new System.Drawing.Size(578, 441);
+      this._projectTreeView.Size = new System.Drawing.Size(913, 546);
       this._projectTreeView.TabIndex = 0;
       this._projectTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this._projectTreeView_AfterSelect);
       // 
@@ -100,12 +107,13 @@
       // splitContainer1.Panel1
       // 
       this.splitContainer1.Panel1.Controls.Add(this._leftTabControl);
+      this.splitContainer1.Panel1.Controls.Add(this.panel1);
       // 
       // splitContainer1.Panel2
       // 
       this.splitContainer1.Panel2.Controls.Add(this._rightTabControl);
-      this.splitContainer1.Size = new System.Drawing.Size(1017, 473);
-      this.splitContainer1.SplitterDistance = 586;
+      this.splitContainer1.Size = new System.Drawing.Size(1358, 611);
+      this.splitContainer1.SplitterDistance = 927;
       this.splitContainer1.TabIndex = 1;
       this.splitContainer1.Text = "splitContainer1";
       // 
@@ -114,10 +122,10 @@
       this._leftTabControl.Controls.Add(this._itemsTabPage);
       this._leftTabControl.Controls.Add(this._propertiesTabPage);
       this._leftTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-      this._leftTabControl.Location = new System.Drawing.Point(0, 0);
+      this._leftTabControl.Location = new System.Drawing.Point(0, 33);
       this._leftTabControl.Name = "_leftTabControl";
       this._leftTabControl.SelectedIndex = 0;
-      this._leftTabControl.Size = new System.Drawing.Size(586, 473);
+      this._leftTabControl.Size = new System.Drawing.Size(927, 578);
       this._leftTabControl.TabIndex = 1;
       // 
       // _itemsTabPage
@@ -126,7 +134,7 @@
       this._itemsTabPage.Location = new System.Drawing.Point(4, 22);
       this._itemsTabPage.Name = "_itemsTabPage";
       this._itemsTabPage.Padding = new System.Windows.Forms.Padding(3);
-      this._itemsTabPage.Size = new System.Drawing.Size(584, 447);
+      this._itemsTabPage.Size = new System.Drawing.Size(919, 552);
       this._itemsTabPage.TabIndex = 0;
       this._itemsTabPage.Text = "Items";
       // 
@@ -136,7 +144,7 @@
       this._propertiesTabPage.Location = new System.Drawing.Point(4, 22);
       this._propertiesTabPage.Name = "_propertiesTabPage";
       this._propertiesTabPage.Padding = new System.Windows.Forms.Padding(3);
-      this._propertiesTabPage.Size = new System.Drawing.Size(578, 447);
+      this._propertiesTabPage.Size = new System.Drawing.Size(919, 552);
       this._propertiesTabPage.TabIndex = 1;
       this._propertiesTabPage.Text = "Properties";
       // 
@@ -153,7 +161,7 @@
       this._propertiesListView.Location = new System.Drawing.Point(3, 3);
       this._propertiesListView.Name = "_propertiesListView";
       this._propertiesListView.ShowItemToolTips = true;
-      this._propertiesListView.Size = new System.Drawing.Size(572, 441);
+      this._propertiesListView.Size = new System.Drawing.Size(913, 546);
       this._propertiesListView.SmallImageList = this.imageList1;
       this._propertiesListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
       this._propertiesListView.TabIndex = 0;
@@ -176,6 +184,55 @@
       this._finalValueColumnHeader.Text = "EvaluatedValue";
       this._finalValueColumnHeader.Width = 319;
       // 
+      // panel1
+      // 
+      this.panel1.Controls.Add(this._clearAllButton);
+      this.panel1.Controls.Add(this._clearPropertyNamePrefixFilterTextButton);
+      this.panel1.Controls.Add(this._clearValueContentFilterButton);
+      this.panel1.Controls.Add(this._valueContentFilterTextBox);
+      this.panel1.Controls.Add(this._propertyNamePrefixFilterTextBox);
+      this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+      this.panel1.Location = new System.Drawing.Point(0, 0);
+      this.panel1.Name = "panel1";
+      this.panel1.Size = new System.Drawing.Size(927, 33);
+      this.panel1.TabIndex = 2;
+      // 
+      // _clearPropertyNamePrefixFilterTextButton
+      // 
+      this._clearPropertyNamePrefixFilterTextButton.Location = new System.Drawing.Point(340, 0);
+      this._clearPropertyNamePrefixFilterTextButton.Name = "_clearPropertyNamePrefixFilterTextButton";
+      this._clearPropertyNamePrefixFilterTextButton.Size = new System.Drawing.Size(55, 23);
+      this._clearPropertyNamePrefixFilterTextButton.TabIndex = 3;
+      this._clearPropertyNamePrefixFilterTextButton.Text = "Clear";
+      this._clearPropertyNamePrefixFilterTextButton.UseVisualStyleBackColor = true;
+      this._clearPropertyNamePrefixFilterTextButton.Click += new System.EventHandler(this._clearPropertyNamePrefixFilterTextButton_Click);
+      // 
+      // _clearValueContentFilterButton
+      // 
+      this._clearValueContentFilterButton.Location = new System.Drawing.Point(767, 0);
+      this._clearValueContentFilterButton.Name = "_clearValueContentFilterButton";
+      this._clearValueContentFilterButton.Size = new System.Drawing.Size(55, 23);
+      this._clearValueContentFilterButton.TabIndex = 2;
+      this._clearValueContentFilterButton.Text = "Clear";
+      this._clearValueContentFilterButton.UseVisualStyleBackColor = true;
+      this._clearValueContentFilterButton.Click += new System.EventHandler(this._clearValueContentFilterButton_Click);
+      // 
+      // _valueContentFilterTextBox
+      // 
+      this._valueContentFilterTextBox.Location = new System.Drawing.Point(401, 3);
+      this._valueContentFilterTextBox.Name = "_valueContentFilterTextBox";
+      this._valueContentFilterTextBox.Size = new System.Drawing.Size(360, 20);
+      this._valueContentFilterTextBox.TabIndex = 1;
+      this._valueContentFilterTextBox.TextChanged += new System.EventHandler(this._valueContentFilterTextBox_TextChanged);
+      // 
+      // _propertyNamePrefixFilterTextBox
+      // 
+      this._propertyNamePrefixFilterTextBox.Location = new System.Drawing.Point(50, 3);
+      this._propertyNamePrefixFilterTextBox.Name = "_propertyNamePrefixFilterTextBox";
+      this._propertyNamePrefixFilterTextBox.Size = new System.Drawing.Size(284, 20);
+      this._propertyNamePrefixFilterTextBox.TabIndex = 0;
+      this._propertyNamePrefixFilterTextBox.TextChanged += new System.EventHandler(this._filterTextBox_TextChanged);
+      // 
       // _rightTabControl
       // 
       this._rightTabControl.Controls.Add(this._propertyTabPage);
@@ -184,7 +241,7 @@
       this._rightTabControl.Location = new System.Drawing.Point(0, 0);
       this._rightTabControl.Name = "_rightTabControl";
       this._rightTabControl.SelectedIndex = 0;
-      this._rightTabControl.Size = new System.Drawing.Size(427, 473);
+      this._rightTabControl.Size = new System.Drawing.Size(427, 611);
       this._rightTabControl.TabIndex = 0;
       // 
       // _propertyTabPage
@@ -193,16 +250,17 @@
       this._propertyTabPage.Location = new System.Drawing.Point(4, 22);
       this._propertyTabPage.Name = "_propertyTabPage";
       this._propertyTabPage.Padding = new System.Windows.Forms.Padding(3);
-      this._propertyTabPage.Size = new System.Drawing.Size(419, 447);
+      this._propertyTabPage.Size = new System.Drawing.Size(419, 585);
       this._propertyTabPage.TabIndex = 0;
       this._propertyTabPage.Text = "Property";
       // 
       // _propertyGrid
       // 
       this._propertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+      this._propertyGrid.LineColor = System.Drawing.SystemColors.ControlDark;
       this._propertyGrid.Location = new System.Drawing.Point(3, 3);
       this._propertyGrid.Name = "_propertyGrid";
-      this._propertyGrid.Size = new System.Drawing.Size(413, 441);
+      this._propertyGrid.Size = new System.Drawing.Size(413, 579);
       this._propertyGrid.TabIndex = 1;
       // 
       // tabPage2
@@ -210,7 +268,7 @@
       this.tabPage2.Location = new System.Drawing.Point(4, 22);
       this.tabPage2.Name = "tabPage2";
       this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-      this.tabPage2.Size = new System.Drawing.Size(312, 436);
+      this.tabPage2.Size = new System.Drawing.Size(419, 585);
       this.tabPage2.TabIndex = 1;
       this.tabPage2.Text = "...";
       // 
@@ -221,7 +279,7 @@
             this._fileToolStripMenuItem});
       this._mainMenuStrip.Location = new System.Drawing.Point(0, 0);
       this._mainMenuStrip.Name = "_mainMenuStrip";
-      this._mainMenuStrip.Size = new System.Drawing.Size(1017, 24);
+      this._mainMenuStrip.Size = new System.Drawing.Size(1358, 24);
       this._mainMenuStrip.TabIndex = 1;
       this._mainMenuStrip.Text = "menuStrip1";
       // 
@@ -255,18 +313,18 @@
       // _toolStripContainer.ContentPanel
       // 
       this._toolStripContainer.ContentPanel.Controls.Add(this.splitContainer1);
-      this._toolStripContainer.ContentPanel.Size = new System.Drawing.Size(1017, 473);
+      this._toolStripContainer.ContentPanel.Size = new System.Drawing.Size(1358, 611);
       this._toolStripContainer.Dock = System.Windows.Forms.DockStyle.Fill;
       this._toolStripContainer.Location = new System.Drawing.Point(0, 0);
       this._toolStripContainer.Name = "_toolStripContainer";
-      this._toolStripContainer.Size = new System.Drawing.Size(1017, 522);
+      this._toolStripContainer.Size = new System.Drawing.Size(1358, 660);
       this._toolStripContainer.TabIndex = 2;
       this._toolStripContainer.Text = "toolStripContainer1";
       // 
       // _toolStripContainer.TopToolStripPanel
       // 
-      this._toolStripContainer.TopToolStripPanel.Controls.Add(this._mainToolStrip);
       this._toolStripContainer.TopToolStripPanel.Controls.Add(this._mainMenuStrip);
+      this._toolStripContainer.TopToolStripPanel.Controls.Add(this._mainToolStrip);
       // 
       // _mainToolStrip
       // 
@@ -297,9 +355,19 @@
       this._projectConfigurationToolStripComboBox.ToolTipText = "Project Configuration";
       this._projectConfigurationToolStripComboBox.SelectedIndexChanged += new System.EventHandler(this._projectConfigurationToolStripComboBox_SelectedIndexChanged);
       // 
+      // _clearAllButton
+      // 
+      this._clearAllButton.Location = new System.Drawing.Point(837, 0);
+      this._clearAllButton.Name = "_clearAllButton";
+      this._clearAllButton.Size = new System.Drawing.Size(83, 23);
+      this._clearAllButton.TabIndex = 4;
+      this._clearAllButton.Text = "Clear all";
+      this._clearAllButton.UseVisualStyleBackColor = true;
+      this._clearAllButton.Click += new System.EventHandler(this._clearAllButton_Click);
+      // 
       // MainForm
       // 
-      this.ClientSize = new System.Drawing.Size(1017, 522);
+      this.ClientSize = new System.Drawing.Size(1358, 660);
       this.Controls.Add(this._toolStripContainer);
       this.Name = "MainForm";
       this.Text = "MSBuild Profect Viewer";
@@ -311,6 +379,8 @@
       this._leftTabControl.ResumeLayout(false);
       this._itemsTabPage.ResumeLayout(false);
       this._propertiesTabPage.ResumeLayout(false);
+      this.panel1.ResumeLayout(false);
+      this.panel1.PerformLayout();
       this._rightTabControl.ResumeLayout(false);
       this._propertyTabPage.ResumeLayout(false);
       this._mainMenuStrip.ResumeLayout(false);
@@ -350,6 +420,12 @@
 		private System.Windows.Forms.ToolStrip _mainToolStrip;
 		private System.Windows.Forms.ToolStripButton _openProjectToolStripButton;
 		private System.Windows.Forms.ToolStripComboBox _projectConfigurationToolStripComboBox;
-	}
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox _propertyNamePrefixFilterTextBox;
+    private System.Windows.Forms.TextBox _valueContentFilterTextBox;
+    private System.Windows.Forms.Button _clearValueContentFilterButton;
+    private System.Windows.Forms.Button _clearPropertyNamePrefixFilterTextButton;
+    private System.Windows.Forms.Button _clearAllButton;
+  }
 }
 
