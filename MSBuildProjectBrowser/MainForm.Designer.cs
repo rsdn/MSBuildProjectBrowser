@@ -366,7 +366,7 @@
             this._projectConfigurationToolStripComboBox});
       this._mainToolStrip.Location = new System.Drawing.Point(3, 24);
       this._mainToolStrip.Name = "_mainToolStrip";
-      this._mainToolStrip.Size = new System.Drawing.Size(219, 25);
+      this._mainToolStrip.Size = new System.Drawing.Size(252, 25);
       this._mainToolStrip.TabIndex = 0;
       this._mainToolStrip.Text = "toolStrip1";
       // 
