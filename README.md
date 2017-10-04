@@ -8,4 +8,7 @@ Features:
 3. Search for properties by content (by substring).
 4. Evarluation of expressions. For example:
 
-![Pic](https://snag.gy/Y246tQ.jpg)
+![Properties](https://snag.gy/Y246tQ.jpg)
+
+
+![Items](https://snag.gy/kFXnQK.jpg)
